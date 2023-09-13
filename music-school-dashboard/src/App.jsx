@@ -1,14 +1,15 @@
-import Home from "./components/Home";
-import Sidebar from "./components/Sidebar";
+// import Home from "./components/Home";
+import Login from "./components/Login";
+// import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
     <>
       <div className="bg-custom-background min-h-screen ">
         {/* <Home /> */}
-        <Sidebar />
+        {/* <Sidebar /> */}
 
-        {/* <Login /> */}
+        <Login />
       </div>
     </>
   );

@@ -1,19 +1,17 @@
-import axios from "axios"
-import { LOGIN_DATA } from "./actionTypes"
+import axios from "axios";
+import { LOGIN_SUCCESS } from "./actionTypes";
 
+export const LoginSuccess = (payload) => ({
+  type: LOGIN_SUCCESS,
+  payload,
+});
 
-const loginData=(payload)=>{
- return {type:LOGIN_DATA,payload}
-}
-
-
-
-
-
-export const Login=(email,password)=>(dispatch)=>{
-   return  axios.post(`https://reqres.in/api/login`,{email,password})
-     .then((res)=>{
-        console.log(res.data.token)
-        dispatch(loginData(res.data))
-     }).catch(err=>console.log(err))
-}
+export const Login = (email, password) => (dispatch) => {
+  return axios
+    .post(`https://reqres.in/api/login`, { email, password })
+    .then((res) => {
+      console.log(res.data);
+      dispatch(LoginSuccess(res.data));
+    })
+    .catch((err) => console.log(err));
+};

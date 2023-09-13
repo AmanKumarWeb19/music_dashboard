@@ -1,23 +1,21 @@
-import { LOGIN_DATA } from "./actionTypes"
+import { LOGIN_SUCCESS } from "./actionTypes";
 
+const initialState = {
+  signupData: null,
+  isAuth: false,
+};
 
-const initialState={
-            course:[],
-            loading:false,
-            error:false,
-            token:""
-        }
-
-export const reducer=(state=initialState,action)=>{
- const {type,payload}=action
-switch (type){
-    case LOGIN_DATA :{
-        return {
-            ...state,token:payload
-        }
+export const reducer = (state = initialState, action) => {
+  console.log("Action", action);
+  switch (action.type) {
+    case LOGIN_SUCCESS: {
+      return {
+        ...state,
+        signupData: action.payload,
+        isAuth: true,
+      };
     }
     default:
-        return state
-}
-
-}
+      return state;
+  }
+};
